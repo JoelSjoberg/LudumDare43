@@ -18,6 +18,8 @@ public class levelsetup : MonoBehaviour {
     //private Transform inst_obj;
     bool choosing_next;
 
+    public bool[] activations = new bool[5];
+
     void Awake ()
     {
         choosing_next = true;
@@ -64,31 +66,31 @@ public class levelsetup : MonoBehaviour {
         if (choosing_next)
         {
             // bounce
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(KeyCode.Q) && activations[0])
             {
                 sacrifices.Add(CreateNewChar(0));
             }
 
             // boost
-            if (Input.GetKey(KeyCode.W))
+            else if (Input.GetKey(KeyCode.W) && activations[1])
             {
                 sacrifices.Add(CreateNewChar(1));
             }
 
             // secondWind
-            if (Input.GetKey(KeyCode.E))
+            else if (Input.GetKey(KeyCode.E) && activations[2])
             {
                 sacrifices.Add(CreateNewChar(2));
             }
 
             // shrink
-            if (Input.GetKey(KeyCode.R))
+            else if (Input.GetKey(KeyCode.R) && activations[3])
             {
                 sacrifices.Add(CreateNewChar(3));
             }
 
             // christmas
-            if (Input.GetKey(KeyCode.T))
+            else if (Input.GetKey(KeyCode.T) && activations[4])
             {
                 sacrifices.Add(CreateNewChar(4));
             }

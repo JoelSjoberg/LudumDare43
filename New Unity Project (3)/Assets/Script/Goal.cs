@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour {
+
+    public string nextLevel;
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +15,17 @@ public class Goal : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Invoke("loadNextLevel", 2);
+        }
+    }
+
+    public void loadNextLevel()
+    {
+        SceneManager.LoadScene(nextLevel);
+    }
 }

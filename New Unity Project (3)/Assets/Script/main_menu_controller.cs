@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class main_menu_controller : MonoBehaviour {
 
+    public string nextLevel;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +17,7 @@ public class main_menu_controller : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.Return))
         {
-            SceneManager.LoadScene("test_level");
+            SceneManager.LoadScene(nextLevel);
         }
 	}
 }

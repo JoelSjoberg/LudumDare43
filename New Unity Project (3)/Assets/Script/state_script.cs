@@ -15,8 +15,11 @@ public class state_script : MonoBehaviour {
 
     public ballType type;
 
+    public int num_launches;
+
     public void instantiateState()
     {
+        num_launches = 0;
         dead = false;
         launched = false;
         active_player = true;

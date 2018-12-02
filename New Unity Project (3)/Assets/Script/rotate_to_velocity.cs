@@ -16,6 +16,5 @@ public class rotate_to_velocity : MonoBehaviour {
     private void FixedUpdate()
     {
         transform.right = Vector3.Lerp(transform.right, rb.velocity, 1);
-        
     }
 }

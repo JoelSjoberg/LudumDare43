@@ -6,6 +6,8 @@ public class collider_script : MonoBehaviour {
 
     state_script state;
 
+    audio_management audio;
+
     [SerializeField] float upwards_force = 500;
     [SerializeField] float boost_force = 500;
 
@@ -13,6 +15,7 @@ public class collider_script : MonoBehaviour {
     private void Awake()
     {
         state = GetComponent<state_script>();
+        audio = FindObjectOfType<audio_management>();
         collided = false;
     }
 
@@ -53,6 +56,8 @@ public class collider_script : MonoBehaviour {
     void bounce(Transform t)
     {
         Debug.Log("bounce");
+        audio.play("bounce");
+        audio.fadeIn("ominous");
         t.GetComponent<Rigidbody>().AddForce(t.up * upwards_force);
     }
 
@@ -60,23 +65,31 @@ public class collider_script : MonoBehaviour {
     void boost(Transform t)
     {
         Debug.Log("boost");
+        audio.play("boost");
+        audio.fadeIn("saturn");
         t.GetComponent<Rigidbody>().AddForce(t.right *boost_force);
     }
 
     void secondWind(Transform t)
     {
         Debug.Log("Second wind");
+        audio.fadeIn("echoes");
         t.GetComponent<state_script>().setLaunched(false);
     }
 
     void shrink(Transform t)
     {
+
         Debug.Log("Shrink");
+        audio.play("shrink");
+        audio.fadeIn("piano");
         t.GetComponent<shrink>().doShrink();
     }
 
     void christmas(Transform t)
     {
+        audio.fadeIn("christmas");
         Debug.Log("DO CHRISTMAS");
+        t.GetComponent<christmas_effect>().startEffect();
     }
 }

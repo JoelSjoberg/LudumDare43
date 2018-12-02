@@ -16,8 +16,13 @@ public class look_at_player : MonoBehaviour {
         if (playerHolder.getActivePlayer() != null)
         {
             target = playerHolder.getActivePlayer();
-            transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, getTargetLerp(target), 1);
             transform.LookAt(playerHolder.getActivePlayer());
         }
 	}
+
+    Vector3 getTargetLerp(Transform t)
+    {
+        return new Vector3(t.position.x, transform.position.y, transform.position.z);
+    }
 }
