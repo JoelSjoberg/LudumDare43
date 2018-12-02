@@ -14,6 +14,14 @@ public class state_script : MonoBehaviour {
     public void setLaunched(bool l)     { launched = l; }
 
     public ballType type;
+
+    public void instantiateState()
+    {
+        dead = false;
+        launched = false;
+        active_player = true;
+    }
+
 }
 
 public enum ballType { bounce, boost, secondWind, shrink, christmas};

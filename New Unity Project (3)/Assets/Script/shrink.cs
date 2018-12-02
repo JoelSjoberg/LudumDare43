@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class shrink : MonoBehaviour {
 
-    Animator anim;
-    Animation shrink_anim;
-    [SerializeField] float small_duration;
-
     [SerializeField] Vector3 shrink_size;
 
-	// Use this for initialization
-	void Awake () {
-        anim = GetComponent<Animator>();
-        shrink_anim = GetComponent<Animation>();
-	}
 
     public void doShrink()
     {

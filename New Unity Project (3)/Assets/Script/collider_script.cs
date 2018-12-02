@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class collider_script : MonoBehaviour {
 
-    ballType type;
     state_script state;
 
     [SerializeField] float upwards_force = 500;
@@ -14,7 +13,6 @@ public class collider_script : MonoBehaviour {
     private void Awake()
     {
         state = GetComponent<state_script>();
-        type = state.type;
         collided = false;
     }
 
