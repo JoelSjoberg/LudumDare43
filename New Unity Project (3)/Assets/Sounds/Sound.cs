@@ -27,9 +27,6 @@ public class Sound{
     {
         while (volume < 1)
         {
-
-            Debug.Log("increasing volume: " + volume);
-            
             volume += 0.1f;
             source.volume = volume;
             yield return new WaitForEndOfFrame();

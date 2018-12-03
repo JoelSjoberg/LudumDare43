@@ -15,19 +15,28 @@ public class sactifice_ui_element : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (state.getDead() || !state.getLaunched())
+        if (!state.getDead())
         {
-            sacrifice_prompt.gameObject.SetActive(false);
-        }
-        if (state.getLaunched() && !state.getDead())
-        {
-            launch_prompt.gameObject.SetActive(false);
-            sacrifice_prompt.gameObject.SetActive(true);
-        }
-        if (!state.getDead() && !state.getLaunched())
-        {
-            launch_prompt.gameObject.SetActive(true);
+
+            if (state.getDead() || !state.getLaunched())
+            {
+                sacrifice_prompt.gameObject.SetActive(false);
+            }
+            if (state.getLaunched() && !state.getDead())
+            {
+                launch_prompt.gameObject.SetActive(false);
+                sacrifice_prompt.gameObject.SetActive(true);
+            }
+            if (!state.getDead() && !state.getLaunched())
+            {
+                launch_prompt.gameObject.SetActive(true);
+            }
         }
 
+        else
+        {
+            launch_prompt.gameObject.SetActive(false);
+            sacrifice_prompt.gameObject.SetActive(false);
+        }
     }
 }

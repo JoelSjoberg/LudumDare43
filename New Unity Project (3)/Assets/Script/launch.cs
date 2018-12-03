@@ -16,7 +16,7 @@ public class launch : MonoBehaviour {
     audio_management audio;
     // wait x amount of seconds before shooting away
     float timer = 0;
-    float wait_time = 2;
+    float wait_time = 1;
 
 	// Use this for initialization
 	void Start ()
@@ -40,7 +40,7 @@ public class launch : MonoBehaviour {
         {
             if (!state.getLaunched() && !state.getDead())
             {
-                if(Input.GetKey(KeyCode.Space))
+                if(Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
                 {
 
                     cam.shake(tuner * 0.5f);
@@ -57,7 +57,7 @@ public class launch : MonoBehaviour {
                     }
                 }
 
-                if (Input.GetKeyUp(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
                 {
                     state.num_launches += 1;
                     audio.play("boost");

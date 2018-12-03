@@ -55,32 +55,27 @@ public class collider_script : MonoBehaviour {
     // if balltype is bounce, add force upwards
     void bounce(Transform t)
     {
-        Debug.Log("bounce");
         audio.play("bounce");
         audio.fadeIn("ominous");
-        t.GetComponent<Rigidbody>().AddForce(t.up * upwards_force);
+        t.GetComponent<Rigidbody>().AddForce(Vector3.up * upwards_force);
     }
 
     // balltype = boost
     void boost(Transform t)
     {
-        Debug.Log("boost");
         audio.play("boost");
         audio.fadeIn("saturn");
-        t.GetComponent<Rigidbody>().AddForce(t.right *boost_force);
+        t.GetComponent<Rigidbody>().AddForce(Vector3.right *boost_force);
     }
 
     void secondWind(Transform t)
     {
-        Debug.Log("Second wind");
         audio.fadeIn("echoes");
         t.GetComponent<state_script>().setLaunched(false);
     }
 
     void shrink(Transform t)
     {
-
-        Debug.Log("Shrink");
         audio.play("shrink");
         audio.fadeIn("piano");
         t.GetComponent<shrink>().doShrink();
@@ -89,7 +84,6 @@ public class collider_script : MonoBehaviour {
     void christmas(Transform t)
     {
         audio.fadeIn("christmas");
-        Debug.Log("DO CHRISTMAS");
         t.GetComponent<christmas_effect>().startEffect();
     }
 }

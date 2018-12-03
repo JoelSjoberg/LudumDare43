@@ -27,7 +27,7 @@ public class sacrifice_script : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.K) && state.num_launches > 0 && !state.getDead())
+        if ((Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1)) && state.num_launches > 0 && !state.getDead())
         {
             die();
             state.setDead(true);
